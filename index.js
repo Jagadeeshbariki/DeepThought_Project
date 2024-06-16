@@ -1,10 +1,23 @@
 const Banner = document.querySelector(".Main-Banner");
 const Assets = document.querySelector(".Assets");
 const BoardButton = document.querySelector(".RightImg")
+const Loader = document.querySelector(".loader");
+
 let Data = ""
+
+function showloader() {
+    Loader.style.display="block";
+}
+
+function hideloader(){
+   
+    Loader.style.display="none";
+    
+}
 
 
 window.addEventListener('load', ()=>{
+    showloader();
     fetch('./Assets/ProjectM.json')
     .then(res=>res.json())
     .then(data=> {
@@ -15,6 +28,9 @@ window.addEventListener('load', ()=>{
         data.tasks[0].assets.map(asset=>{
             DisplayAssets(asset);
         })
+
+        hideloader();
+        
     })
     .catch(err=>console.log(err));
 })
@@ -69,7 +85,7 @@ BoardButton.addEventListener('click',()=>{
 
 // function for the the displying the Tasks
 const DisplayTask=(data)=>{
-
+    
     // creagint the Banner Heading 
     const BannerHeading = document.createElement('p');
     BannerHeading.textContent= data[0].task_title;
@@ -90,6 +106,7 @@ const DisplayTask=(data)=>{
 // functionf for the displaying the assets:
 
 const DisplayAssets=(data)=>{
+    
     const AssetCotainer = document.createElement('div');
     AssetCotainer.className= 'AssetContainer';
 
@@ -202,6 +219,10 @@ const DisplayAssets=(data)=>{
 
         AssetCotainer.appendChild(AssetArticle)
     }
+
+    
+    
+   
 
     Assets.appendChild(AssetCotainer);
 }

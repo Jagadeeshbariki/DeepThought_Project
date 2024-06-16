@@ -753,7 +753,43 @@ body{
     line-height: 19.07px;
     letter-spacing: 0.02em;
     text-align: left;
+
 }
+
+.loader{
+    
+   position: fixed;
+   top: 0px;
+   left: 0px;
+   bottom: 0px;
+   right: 0px;
+   background-color: rgba(0, 0, 0, 0.417);
+    
+}
+/* 
+.showloader{
+    display: block;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.417);
+} */
+
+.loader img{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 200px;
+   right: 0;
+   bottom: 0;
+   margin: auto;
+}
+
+
+
+
 
 /* Styling for the mobile view */
 
